@@ -1,0 +1,14 @@
+version: '3.4' 
+
+services:
+ mailcatcher:
+  image: berserker5000/mailcatcher
+  ports:
+   - "1080:1080"
+   - "1025:1025"
+  deploy:
+   mode: replicated
+   replicas: 2
+   placement:
+        constraints:
+          - node.role == worker
